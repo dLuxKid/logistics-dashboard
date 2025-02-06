@@ -1,7 +1,6 @@
 import { NavLink } from "react-router";
-import Logo from "../assets/logo";
-import Search from "./search";
 import { Bell } from "../assets/bell";
+import Logo from "../assets/logo";
 import { MdiUser } from "../assets/user";
 
 export default function Navbar() {
