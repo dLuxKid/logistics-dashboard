@@ -8,7 +8,16 @@ const getRandomItem = (arr: string[]) =>
 const getRandomDateTime = () => {
   const date = new Date();
   date.setDate(date.getDate() - Math.floor(Math.random() * 30));
-  return date.toISOString().replace("T", " ").split(".")[0];
+  return date
+    .toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: false,
+    })
+    .replace(",", "");
 };
 
 const cities = [
@@ -156,14 +165,13 @@ export default function OrderRequest() {
           </div>
         </div>
       )}
-      <div className="w-full rounded-lg border bg-white border-gray-200 shadow-sm min-h-screen">
-        <div className="w-full flex justify-between items-center gap-4 p-2 px-4 border-b h-12 border-b-gray-200">
+      <div className="w-full rounded-lg border bg-white border-gray-200 shadow-sm lg:min-h-screen">
+        <div className="w-full flex flex-wrap gap-2 justify-between items-center p-2 px-4 border-b xl:h-12 border-b-gray-200">
           <p className="text-base md:text-lg font-medium">Order Requests</p>
-
           <Search
-            query_name={"order_request"}
-            placeholder="Search date, order id etc."
-            className="w-full outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
+            query_name="order_request"
+            placeholder="Search customer, order id, status etc."
+            className="min-w-64 outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
           />
         </div>
         <div className="flex flex-col gap-4 p-4 pt-2 h-screen hide-scrollbar overflow-y-auto">
@@ -173,27 +181,35 @@ export default function OrderRequest() {
               className="w-full flex flex-col bg-[#fff1f0] rounded-lg px-2"
             >
               <div className="w-full flex items-center justify-between gap-4 py-2">
-                <h4 className="font-medium">{request.orderId}</h4>
-                <p className="text-sm text-slate-500">{request.dateTime}</p>
+                <h4 className="font-medium text-sm md:text-base">
+                  {request.orderId}
+                </h4>
+                <p className="text-xs md:text-sm text-slate-500">
+                  {request.dateTime}
+                </p>
               </div>
               <span className="h-0.5 border border-dashed border-gray-200 w-full rounded-full" />
               <div className="flex items-center justify-between gap-2 py-2">
                 <div className="w-auto">
                   <p className="text-xs text-gray-600">Pickup location</p>
-                  <h5 className="font-semibold">{request.departure}</h5>
+                  <h5 className="font-semibold text-sm md:text-base">
+                    {request.departure}
+                  </h5>
                 </div>
                 <div>
                   <p className="text-xs text-gray-600">Destination</p>
-                  <h5 className="font-semibold">{request.arrival}</h5>
+                  <h5 className="font-semibold text-sm md:text-base">
+                    {request.arrival}
+                  </h5>
                 </div>
               </div>
               <span className="h-0.5 border border-dashed border-gray-200 w-full rounded-full" />
               <div className="w-full flex items-center justify-between gap-4 py-2">
-                <h4 className="font-semibold text-black">
+                <h4 className="font-semibold text-sm md:text-base text-black">
                   {request.company.name}
                 </h4>
                 <p
-                  className="text-sm text-blue-600 hover:underline cursor-pointer"
+                  className="text-xs md:text-sm text-blue-600 hover:underline cursor-pointer"
                   onClick={() => setSelectedOrder(request)}
                 >
                   View Details

@@ -32,8 +32,8 @@ export default function TruckLoadingPieChart() {
         <p className="text-base md:text-lg font-medium">Loading Trucks</p>
         <p className="text-blue-500 hover:underline cursor-pointer">View all</p>
       </div>
-      <div className="w-full flex p-2 pl-4">
-        <div className="flex flex-col gap-4 justify-center w-[40%]">
+      <div className="w-full flex flex-col xl:flex-row p-2 pl-4">
+        <div className="flex flex-wrap xl:flex-nowrap xl:flex-col gap-4 justify-center xl:w-[40%]">
           {pie_data.map((item, i) => (
             <p
               key={i}
@@ -49,7 +49,7 @@ export default function TruckLoadingPieChart() {
           ))}
         </div>
 
-        <div className="size-full -mx-4">
+        <div className="size-full -m-4">
           <ResponsiveContainer width={"100%"} height={250}>
             <PieChart>
               <Pie

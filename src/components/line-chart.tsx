@@ -90,8 +90,8 @@ export default function LineChartData() {
           ))}
         </select>
       </div>
-      <div className="w-full flex p-2 pl-4">
-        <div className="flex flex-col gap-2">
+      <div className="w-full flex flex-col xl:flex-row p-2 pl-4">
+        <div className="flex flex-wrap xl:flex-nowrap xl:flex-col gap-4 justify-center">
           <div>
             <h5 className="text-sm">Active</h5>
             <p className="text-base font-bold">300</p>
@@ -105,7 +105,7 @@ export default function LineChartData() {
             <p className="text-base font-bold">400</p>
           </div>
         </div>
-        <div className="size-full">
+        <div className="w-full -ml-6 xl:ml-0">
           <ResponsiveContainer width={"100%"} height={250}>
             <AreaChart data={filteredData}>
               <XAxis dataKey="name" />

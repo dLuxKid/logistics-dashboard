@@ -19,7 +19,7 @@ export default function Search(
   }, 300);
 
   return (
-    <label className="flex flex-1 flex-shrink-0">
+    <label className="flex">
       <input
         title="search"
         type="text"
