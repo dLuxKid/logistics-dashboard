@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# Logistics Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The **Logistics Dashboard** is a web application designed to manage and visualize logistics data, including shipping orders, unloading cargo, order requests, and more. It provides insightful data visualization through charts and tables, helping logistics companies track their operations efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🚀 Live Demo
 
-## Expanding the ESLint configuration
+[Logistics Dashboard](https://logistics-dashboard-ebon.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- 📊 **Data Visualization:** Interactive charts using Recharts.
+- 📦 **Order Management:** View and filter order requests, unloading cargo, and latest shipments.
+- 🔍 **Search & Filtering:** Easily search for orders based on company name, departure, or arrival location.
+- 📅 **Date-Based Filtering:** Select different time periods to analyze order trends.
+- 🌙 **Modern UI:** Clean and responsive design using Tailwind CSS.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Tech Stack
+
+- ⚛️ **React** (Vite for fast development)
+- 🎨 **Tailwind CSS** (for styling)
+- 📈 **Recharts** (for data visualization)
+
+---
+
+## Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```sh
+git clone https://github.com/dluxkid/logistics-dashboard.git
+cd logistics-dashboard
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2️⃣ Install Dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+npm install
 ```
+
+### 3️⃣ Start the Development Server
+
+```sh
+npm run dev
+```
+
+This will start the app on `http://localhost:5173/` (default Vite port).
+
+---
+
+## Folder Structure
+
+```
+logistics-dashboard/
+│── public/           # Static assets
+│── src/
+│   ├── components/   # Reusable components
+│   ├── assets/       # Static assets
+│   ├── index.css     # Styling
+│   ├── App.jsx       # Main application entry
+│── package.json      # Dependencies & scripts
+│── README.md         # Documentation
+```
+
+---
+
+## Contributing
+
+Feel free to contribute by opening a pull request or submitting an issue!
+
+---
+
+## License
+
+This project is open-source and available under the **MIT License**.
