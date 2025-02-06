@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "./search";
+import { useSearchParams } from "react-router";
 
 const getRandomItem = (arr: string[]) =>
   arr[Math.floor(Math.random() * arr.length)];
@@ -40,7 +41,7 @@ const items = [
   "Food & Perishables",
 ];
 
-const orderRequests = Array.from({ length: 5 }, (_) => {
+const orderRequests = Array.from({ length: 10 }, (_) => {
   const departure = getRandomItem(cities);
   let arrival = getRandomItem(cities);
   while (arrival === departure) arrival = getRandomItem(cities);
@@ -67,6 +68,24 @@ export default function OrderRequest() {
   const [selectedOrder, setSelectedOrder] = useState<
     (typeof orderRequests)[0] | null
   >(null);
+
+  const [searchParams] = useSearchParams();
+
+  const [orders, setOrders] = useState(orderRequests);
+
+  useEffect(() => {
+    const query = searchParams.get("order_request")?.toLowerCase() || "";
+
+    const filteredOrders = orderRequests.filter((order) => {
+      return (
+        order.company.name.toLowerCase().includes(query) ||
+        order.departure.toLowerCase().includes(query) ||
+        order.arrival.toLowerCase().includes(query)
+      );
+    });
+
+    setOrders(filteredOrders);
+  }, [searchParams]);
 
   return (
     <>
@@ -142,12 +161,13 @@ export default function OrderRequest() {
           <p className="text-base md:text-lg font-medium">Order Requests</p>
 
           <Search
+            query_name={"order_request"}
             placeholder="Search date, order id etc."
             className="w-full outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
           />
         </div>
-        <div className="flex flex-col gap-4 p-4 pt-2 max-h-screen hide-scrollbar overflow-y-auto">
-          {orderRequests.map((request, i) => (
+        <div className="flex flex-col gap-4 p-4 pt-2 h-screen hide-scrollbar overflow-y-auto">
+          {orders.map((request, i) => (
             <div
               key={i}
               className="w-full flex flex-col bg-[#fff1f0] rounded-lg px-2"

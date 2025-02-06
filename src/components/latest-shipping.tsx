@@ -1,3 +1,7 @@
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
+import Search from "./search";
+
 const getRandomItem = (arr: string[]) =>
   arr[Math.floor(Math.random() * arr.length)];
 const getRandomDate = () => {
@@ -42,10 +46,37 @@ const shippingData = Array.from({ length: 10 }, (_) => {
 });
 
 export default function LatestShipping() {
+  const [searchParams] = useSearchParams();
+
+  const [shippings, setShippings] = useState(shippingData);
+
+  useEffect(() => {
+    const query = searchParams.get("shipping")?.toLowerCase() || "";
+
+    const filteredShippings = shippingData.filter((order) => {
+      return (
+        order.status.toLowerCase().includes(query) ||
+        order.customer.toLowerCase().includes(query) ||
+        order.departure.toLowerCase().includes(query) ||
+        order.arrival.toLowerCase().includes(query) ||
+        order.orderId.toLowerCase().includes(query)
+      );
+    });
+
+    setShippings(filteredShippings);
+  }, [searchParams]);
+
   return (
     <div className="w-full rounded-lg border bg-white border-gray-200 shadow-sm">
       <div className="w-full flex justify-between items-center p-2 px-4 border-b h-12 border-b-gray-200">
-        <p className="text-base md:text-lg font-medium">Latest Shipping</p>
+        <div className="flex gap-4 items-center">
+          <p className="text-base md:text-lg font-medium">Latest Shipping</p>
+          <Search
+            query_name="shipping"
+            placeholder="Search customer, order id, status etc."
+            className="w-80 outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
+          />
+        </div>
         <p className="text-blue-500 hover:underline cursor-pointer">View all</p>
       </div>
       <div className="overflow-x-auto">
@@ -64,7 +95,7 @@ export default function LatestShipping() {
             </tr>
           </thead>
           <tbody>
-            {shippingData.map((shipment, index) => (
+            {shippings.map((shipment, index) => (
               <tr key={index} className="text-center">
                 <td className="border-y border-gray-200 px-4 py-2">
                   {shipment.orderId}

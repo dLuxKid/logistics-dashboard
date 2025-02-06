@@ -8,16 +8,10 @@ export default function Navbar() {
   return (
     <div className="w-full px-[2.5%] py-2 border-b border-b-gray-300 flex justify-center">
       <nav className="flex items-center justify-between max-w-[1512px] w-full">
-        <div className="flex items-center gap-4">
-          <NavLink to="/" className="cursor-pointer">
-            <Logo className="size-12" />
-          </NavLink>
+        <NavLink to="/" className="cursor-pointer">
+          <Logo className="size-12" />
+        </NavLink>
 
-          <Search
-            placeholder="Search name, order id etc."
-            className="w-80 outline-none border border-gray-300 rounded-full h-10s px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
-          />
-        </div>
         <div className="flex items-center gap-4">
           <div className="cursor-pointer relative group">
             <Bell className="size-6 fill-black" />
