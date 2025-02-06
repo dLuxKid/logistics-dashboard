@@ -25,7 +25,7 @@ const customers = [
   "Michael Lee",
 ];
 
-const shippingData = Array.from({ length: 10 }, (_, i) => {
+const shippingData = Array.from({ length: 10 }, (_) => {
   const departure = getRandomItem(cities);
   let arrival = getRandomItem(cities);
   while (arrival === departure) arrival = getRandomItem(cities);

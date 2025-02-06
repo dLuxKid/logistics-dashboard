@@ -1,0 +1,60 @@
+{
+  "shipments": [
+    {
+      "orderId": "ORD-001",
+      "status": "In Transit",
+      "customer": "John Doe",
+      "departure": "Lagos, Nigeria",
+      "arrival": "Abuja, Nigeria",
+      "arrivalDate": "2025-02-10",
+      "weight": "500kg"
+    }
+  ],
+  "unloadingCargo": [
+    {
+      "orderId": "ORD-002",
+      "departure": "Kano, Nigeria",
+      "arrival": "Port Harcourt, Nigeria",
+      "deliveredStatus": "Pending",
+      "arrivalDate": "2025-02-12"
+    }
+  ],
+  "orderRequests": [
+    {
+      "orderId": "ORD-003",
+      "dateTime": "2025-02-05T12:30:00Z",
+      "orderSummary": "5 Boxes of Electronics",
+      "pickupAddress": "123 Warehouse Road, Lagos",
+      "deliveryAddress": "45 Office Street, Abuja",
+      "departure": "Lagos",
+      "arrival": "Abuja",
+      "company": {
+        "name": "Tech Logistics Ltd",
+        "type": "Electronics Distributor",
+        "location": "Ikeja, Lagos"
+      }
+    }
+  ],
+  "loadingTrucks": [
+    {
+      "name": "Loaded",
+      "value": 30,
+      "color": "#8884d8"
+    },
+    {
+      "name": "In Transit",
+      "value": 25,
+      "color": "#82ca9d"
+    },
+    {
+      "name": "Idle",
+      "value": 15,
+      "color": "#ffc658"
+    },
+    {
+      "name": "Delayed",
+      "value": 10,
+      "color": "#ff8042"
+    }
+  ]
+}

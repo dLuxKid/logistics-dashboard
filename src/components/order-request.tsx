@@ -40,10 +40,10 @@ const items = [
   "Food & Perishables",
 ];
 
-const orderRequests = Array.from({ length: 5 }, (_, i) => {
+const orderRequests = Array.from({ length: 5 }, (_) => {
   const departure = getRandomItem(cities);
   let arrival = getRandomItem(cities);
-  while (arrival === departure) arrival = getRandomItem(cities); // Ensure different city
+  while (arrival === departure) arrival = getRandomItem(cities);
 
   const company = companies[Math.floor(Math.random() * companies.length)];
 
