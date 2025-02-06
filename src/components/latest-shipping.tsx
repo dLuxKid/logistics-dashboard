@@ -79,7 +79,7 @@ export default function LatestShipping() {
         <Search
           query_name="shipping"
           placeholder="Search customer, order id, status etc."
-          className="min-w-64 outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
+          className="sm:min-w-64 outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
         />
       </div>
       <div className="overflow-x-auto">

@@ -166,15 +166,18 @@ export default function OrderRequest() {
         </div>
       )}
       <div className="w-full rounded-lg border bg-white border-gray-200 shadow-sm lg:min-h-screen">
-        <div className="w-full flex flex-wrap gap-2 justify-between items-center p-2 px-4 border-b xl:h-12 border-b-gray-200">
-          <p className="text-base md:text-lg font-medium">Order Requests</p>
+        <div className="w-full flex flex-wrap lg:flex-nowrap gap-2 justify-between items-center p-2 px-4 border-b xl:h-12 border-b-gray-200">
+          <p className="text-base md:text-lg font-medium">Requests</p>
           <Search
             query_name="order_request"
             placeholder="Search customer, order id, status etc."
-            className="min-w-64 lg:min-w-auto outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
+            className="outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
           />
         </div>
         <div className="flex flex-col gap-4 p-4 pt-2 h-screen hide-scrollbar overflow-y-auto">
+          <p className="font-medium text-sm md:text-base text-gray-600">
+            Recent order requests
+          </p>
           {orders.map((request, i) => (
             <div
               key={i}
