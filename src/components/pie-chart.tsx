@@ -49,7 +49,7 @@ export default function TruckLoadingPieChart() {
           ))}
         </div>
 
-        <div className="size-full">
+        <div className="size-full -mx-4">
           <ResponsiveContainer width={"100%"} height={250}>
             <PieChart>
               <Pie
