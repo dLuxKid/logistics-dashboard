@@ -166,7 +166,7 @@ export default function OrderRequest() {
         </div>
       )}
       <div className="w-full rounded-lg border bg-white border-gray-200 shadow-sm lg:min-h-screen">
-        <div className="w-full flex flex-wrap lg:flex-nowrap gap-2 justify-between items-center p-2 px-4 border-b xl:h-12 border-b-gray-200">
+        <div className="w-full flex flex-wrap xl:flex-nowrap gap-2 justify-between items-center p-2 px-4 border-b xl:h-12 border-b-gray-200">
           <p className="text-base md:text-lg font-medium">Requests</p>
           <Search
             query_name="order_request"
