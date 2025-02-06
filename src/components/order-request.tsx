@@ -171,7 +171,7 @@ export default function OrderRequest() {
           <Search
             query_name="order_request"
             placeholder="Search customer, order id, status etc."
-            className="min-w-64 outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
+            className="min-w-64 lg:min-w-auto outline-none border border-gray-300 rounded-full h-8 px-4 py-2 bg-transparent placeholder:text-gray-300 text-black text-base"
           />
         </div>
         <div className="flex flex-col gap-4 p-4 pt-2 h-screen hide-scrollbar overflow-y-auto">
