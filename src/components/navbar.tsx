@@ -5,7 +5,7 @@ import { MdiUser } from "../assets/user";
 
 export default function Navbar() {
   return (
-    <div className="w-full px-[2.5%] py-2 border-b border-b-gray-300 flex justify-center">
+    <div className="w-full px-[2.5%] 2xl:px-[5%] py-2 border-b border-b-gray-300 flex justify-center">
       <nav className="flex items-center justify-between max-w-[1512px] w-full">
         <NavLink to="/" className="cursor-pointer">
           <Logo className="size-12" />
